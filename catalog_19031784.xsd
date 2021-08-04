@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- This schema follows the Venetian Blind format -->
+
+<xs:element name="shop">
+<xs:complexType>
+    <xs:sequence>
+            <xs:element name="shopDetails" type="sDetails"/>
+            <xs:element name="genres" type="genres"/>
+            <xs:element name="songs" type="songs"/>
+    </xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="sDetails">
+    <xs:sequence>
+        <xs:group ref="shopDetailsChildren"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="genres" mixed="true">
+    <xs:sequence>
+        <xs:group ref="genresChildren"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="songs">
+    <xs:sequence>
+        <xs:element name="song" type="songType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:group name="shopDetailsChildren">
+    <xs:sequence>
+        <xs:element name="logo" type="logo"/>
+        <xs:element name="shopLicence" type="licence"/>
+        <xs:element name="shopName" type="xs:normalizedString"/>
+        <xs:element name="address" type="shopAddress"/>
+        <xs:element name="telephone" type="xs:NMTOKEN"></xs:element>
+        <xs:element name="webAddress" type="xs:anyURI"/>
+        <xs:element name="shopInfo" type="xs:string"></xs:element>
+    </xs:sequence>
+</xs:group>
+
+
+<xs:complexType name="licence">
+    <xs:attribute name="licenceNo" type="xs:NMTOKEN"></xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="shopAddress">
+    <xs:group ref="shopAddressChildren"/>
+</xs:complexType>
+
+<xs:complexType name="logo"/>
+
+<xs:group name="shopAddressChildren">
+    <xs:sequence>
+        <xs:element name="street"/>
+        <xs:element name="city"/>
+        <xs:element name="country"/>
+    </xs:sequence>
+</xs:group>
+
+<xs:group name="genresChildren">
+    <xs:sequence>
+        <xs:element name="genreGroup" type="genreGroupType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:group>
+
+<xs:complexType name="genreGroupType" mixed="true">
+    <xs:sequence>
+        <xs:element name="genre" type="genreType"/>
+        <xs:element name="genreInfo" type="genreIDRefType"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="genreType">
+    <xs:simpleContent>
+        <xs:extension base="xs:normalizedString">
+            <xs:attribute name="genreID" type="xs:ID"/>
+        </xs:extension>    
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="genreIDRefType">
+    <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="genreID" type="xs:IDREF"/>
+        </xs:extension>    
+    </xs:simpleContent>
+</xs:complexType>
+
+
+<xs:complexType name="songType">
+    <xs:group ref="songChildren"/>
+</xs:complexType>
+
+<xs:group name="songChildren">
+    <xs:sequence>
+        <xs:element name="songName" type="xs:normalizedString"/>
+        <xs:element name="songGenre" type="genreIDRefType"/>
+        <xs:element name="director" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
+        <xs:choice> 
+            <xs:element name="producer" type="xs:normalizedString"/>
+            <xs:element name="band" type="bandType"/>
+        </xs:choice>
+        <xs:element name="writer" type="xs:normalizedString"/>
+        <xs:element name="musician" type="musicianType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="version" type="versionType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="singer" type="singerType" minOccurs="1" maxOccurs="unbounded"/>
+        <xs:element name="releaseYear" type="xs:gYear"/>
+        <xs:element name="songLength" type="xs:duration" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="language" type="singleString"/>
+        <xs:element name="bitRate" type="bitRateType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+</xs:group>
+
+<xs:complexType name="bandType">
+    <xs:simpleContent>
+        <xs:extension base="xs:normalizedString">
+            <xs:attribute name="memberCount" type="xs:nonNegativeInteger"/>
+        </xs:extension>    
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="musicianType">
+    <xs:simpleContent>
+        <xs:extension base="xs:normalizedString">
+            <xs:attribute name="mType" type="msType"/>
+        </xs:extension>    
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="singerType">
+    <xs:simpleContent>
+        <xs:extension base="xs:normalizedString">
+            <xs:attribute name="sType" type="msType"/>
+        </xs:extension>    
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="msType">
+    <xs:restriction base="xs:normalizedString">
+        <xs:enumeration value="Lead"/>
+        <xs:enumeration value="Cover"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="versionType">
+    <xs:simpleContent>
+        <xs:extension base="xs:normalizedString">
+            <xs:attribute name="albumNo" type="aType"/>
+            <xs:attribute name="singleNo" type="sType"/>
+        </xs:extension>    
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="aType">
+    <xs:restriction base="xs:token">
+        <xs:pattern value="[A][0-9]+"/>
+    </xs:restriction>    
+</xs:simpleType>
+
+<xs:simpleType name="sType">
+    <xs:restriction base="xs:token">
+        <xs:pattern value="[S][0-9]+"/>
+    </xs:restriction>    
+</xs:simpleType>
+
+<xs:simpleType name="singleString">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[a-zA-Z]*"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="bitRateType">
+    <xs:simpleContent>
+    <xs:extension base="xs:positiveInteger">
+        <xs:attribute name="unit" type="singleString" fixed="kbps"/>
+    </xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+
+</xs:schema>

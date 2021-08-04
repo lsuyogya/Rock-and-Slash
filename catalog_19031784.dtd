@@ -1,0 +1,41 @@
+<!ELEMENT shop (shopDetails,genres,songs)>
+<!ELEMENT shopDetails (logo,shopLicence,shopName,address,telephone,webAddress,shopInfo)>
+<!ELEMENT logo EMPTY>
+<!ELEMENT shopLicence EMPTY>
+<!ELEMENT shopName (#PCDATA)>
+<!ELEMENT address (street,city,country)>
+<!ELEMENT street (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT telephone (#PCDATA)>
+<!ELEMENT webAddress (#PCDATA)>
+<!ELEMENT shopInfo (#PCDATA)>
+<!ELEMENT genres (#PCDATA|genreGroup)*>
+<!ELEMENT genreGroup (genre,genreInfo)>
+<!ELEMENT genre (#PCDATA)>
+<!ELEMENT genreInfo (#PCDATA)>
+<!ELEMENT songs (song+)>
+<!ELEMENT song (songName,songGenre,director?, (producer|band),writer,musician*,version?,singer+,releaseYear,songLength?, language, bitRate?)>
+<!ELEMENT songName (#PCDATA)>
+<!ELEMENT songGenre (#PCDATA)>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT producer (#PCDATA)>
+<!ELEMENT band (#PCDATA)>
+<!ELEMENT writer (#PCDATA)>
+<!ELEMENT musician (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+<!ELEMENT singer (#PCDATA)>
+<!ELEMENT releaseYear (#PCDATA)>
+<!ELEMENT songLength (#PCDATA)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT bitRate (#PCDATA)>
+
+<!ATTLIST shopLicence licenceNo NMTOKEN #REQUIRED>
+<!ATTLIST genre genreID ID #REQUIRED>
+<!ATTLIST genreInfo genreID IDREF #REQUIRED>
+<!ATTLIST songGenre genreID IDREF #REQUIRED>
+<!ATTLIST band memberCount NMTOKEN #IMPLIED>
+<!ATTLIST musician mType (Lead|Cover) "Cover">
+<!ATTLIST version albumNo CDATA #IMPLIED singleNo CDATA #IMPLIED>
+<!ATTLIST singer sType (Cover|Lead) "Cover">
+<!ATTLIST bitRate unit CDATA #FIXED "kbps">

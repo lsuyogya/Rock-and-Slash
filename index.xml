@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Suyogya Luitel -->
+<?xml-stylesheet href="catalog_19031784.css" type="text/css"?>
+<!DOCTYPE shop SYSTEM "catalog_19031784.dtd">
+<?xml-model href="catalog_19031784.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<shop> 
+<!-- This is the Root tag -->
+    <shopDetails>
+    <!-- This tag holds all the information of the shop -->
+        <logo/>
+        <shopLicence licenceNo="SH:01-30"/> <!-- This element is empty, but it holds the shop License number as an attribute-->
+        <shopName>Rock &amp; Slash</shopName>
+        <address>
+            <street>3522  Trouser Leg Road</street>
+            <city>Massachusetts</city>
+            <country>United States of America</country>
+        </address>
+        <telephone>413-785-681</telephone>
+        <webAddress> <![CDATA[ https://www.Rock&Slash.com ]]> </webAddress>
+        <shopInfo>
+            Rock &amp; Slash sells the best music albums and singles ranging from several genre of music.
+        </shopInfo>
+    </shopDetails>
+
+    <genres>
+    <!-- This tag displays all the genres featured by the shop, and also defines the genreIDs.  -->
+        Some song genres featured by &quot;Rock &amp; Slash&quot; are:
+        <genreGroup>
+            <genre genreID="gen1">Rock </genre>
+            <genreInfo genreID="gen1">Rock, form of popular music that emerged in the 1950s and that by the end of the 20th century was the world's dominant form of popular music.</genreInfo>
+        </genreGroup>
+        <genreGroup>
+            <genre genreID="gen2">Dubstep</genre>
+            <genreInfo genreID="gen2">Dubstep is a form of dance music, typically instrumental, characterized by a sparse, syncopated rhythm and a strong bassline.</genreInfo>
+        </genreGroup>
+        <genreGroup>
+            <genre genreID="gen3">Jazz</genre>
+            <genreInfo genreID="gen3">Jazz music is a broad style of music characterized by complex harmony, syncopated rhythms, and a heavy emphasis on improvisation.</genreInfo>
+        </genreGroup>
+        <genreGroup>
+            <genre genreID="gen4">Pop</genre>
+            <genreInfo genreID="gen4">Popular music (stylized pop music) is music with wide appeal that is typically distributed to large audiences through the music industry.</genreInfo>
+        </genreGroup>
+    </genres>
+
+    <songs>
+    <!-- This tag holds all the available songs -->
+        <song> <!-- Song tags hold the information of the song-->
+            <songName>To the Moon</songName>
+            <songGenre genreID="gen1">Rock</songGenre> 
+            <director>Hideo Kojima</director> 
+            <band memberCount="6">CD REP</band>
+            <writer>Soulient Bill</writer>
+            <musician mType="Lead">Matthew Miller</musician>
+            <version singleNo="S1">Single</version>
+            <singer sType="Lead">Betty Freeman</singer>
+            <releaseYear>1990</releaseYear>
+            <language>English</language>
+            <bitRate unit="kbps">1411</bitRate>
+        </song>
+
+        <song>
+            <songName>Underworld</songName>
+            <songGenre genreID="gen2">Dubstep</songGenre>
+            <producer>Lola Freeman</producer>
+            <writer>Georgie Freeman</writer>
+            <singer sType="Lead">Alexia Miller</singer>
+            <singer sType="Cover">Kaitlyn Smith</singer>
+            <singer sType="Cover">James Brown</singer>
+            <releaseYear>2010</releaseYear>
+            <songLength>PT3M20S</songLength> <!-- This tag uses xs:duration datatype and hence, looks unconventional-->
+            <language>English</language>
+        </song>
+
+        <song>
+            <songName>Unravel</songName>
+            <songGenre genreID="gen4">Pop</songGenre> 
+            <director>Jay Garcia</director> 
+            <producer>Emma Wattson</producer> 
+            <writer>Oliver Miller</writer>
+            <musician mType="Lead">Mohammed Miller</musician> 
+            <musician mType="Cover">Mohammed Abdul</musician> 
+            <musician>Jonathan Joestar</musician>
+            <version albumNo="A11">Album</version> 
+            <singer sType="Lead">Kira Yoshikage</singer> 
+            <releaseYear>2001</releaseYear>
+            <songLength>PT4M03S</songLength> 
+            <language>Japanese</language> 
+            <bitRate unit="kbps">320</bitRate>
+        </song>
+
+        <song>
+            <songName>Through Fire and Flames</songName>
+            <songGenre genreID="gen1">Rock</songGenre> 
+            <director>Asagiri Gen</director>
+            <band memberCount="9">DragonForce</band> 
+            <writer>James william</writer>
+            <musician mType="Lead">Herman Lee</musician> 
+            <singer sType="Lead">Conor Miller</singer> 
+            <releaseYear>1969</releaseYear>
+            <songLength>PT3M09S</songLength> 
+            <language>English</language> 
+        </song>
+
+        <song>
+            <songName>So What</songName>
+            <songGenre genreID="gen3">Jazz</songGenre> 
+            <director>Abraham Jones</director> 
+            <band memberCount="3">QuietGoblins</band> 
+            <writer>Gol D. Roger</writer>
+            <singer sType="Lead">Jerry Joestar</singer> 
+            <releaseYear>2015</releaseYear>
+            <language>English</language> 
+        </song>
+
+        <song>
+            <songName>Carnival</songName>
+            <songGenre genreID="gen4">Pop</songGenre> 
+            <producer>William Dobre</producer> 
+            <writer>Kaitlyn Smith</writer>
+            <musician mType="Lead">Fleur Freeman</musician> 
+            <version singleNo="S13">Single</version> 
+            <singer sType="Lead">Connor Condoriano</singer> 
+            <releaseYear>1982</releaseYear>
+            <songLength>PT2M11S</songLength> 
+            <language>Chinese</language> 
+            <bitRate unit="kbps">96</bitRate> 
+        </song>
+    </songs>
+
+
+</shop>

@@ -1,0 +1,225 @@
+/* Importing fonts used in the css */
+@import url('http://fonts.cdnfonts.com/css/backslash');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+/* Defining common properties for all elementsin the css */
+* {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    color: #5d5e61;
+    font-size: 1em;
+    font-family: 'Ubuntu', sans-serif;
+    overflow-x: hidden;
+}
+
+/* This is the root tag, and is thus given the entire viewport as width */
+shop {
+    height: 100vh;
+    width: 100vw;
+    justify-content: left;
+}
+
+/* These are the three children tags that store all other data.
+Their common properties are defined in this section */
+shopDetails,
+genres,
+songs {
+    background-color: #ecf0f3;
+    width: 92vw;
+    height: auto;
+    box-shadow: inset 1em 1em 0.5em #d1d9e6, inset -1em -1em 0.5em #ffffff90;
+    border-radius: 1em;
+    padding: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+/* This is the logo element which is given a fixed size and has the logo set as its background */
+shopDetails>logo {
+    background-image: url("logo.jpg");
+    /*Logo Source: https://www.pinterest.com/pin/19140367141090808/ */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10em;
+    width: 7em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    box-shadow: .25em .25em 1em #00000090;
+}
+
+/* These are the children elements of shop tag */
+shopName,
+street,
+country,
+city,
+telephone,
+webAddress {
+    width: 100%;
+    height: 2em;
+    align-content: center;
+}
+
+/* This tag holds the title of the XML, the shop name */
+shopName {
+    justify-content: center;
+    font-family: 'Backslash', sans-serif;
+    font-size: 3em;
+    width: calc(100% - 8em);
+    color: #000000e7;
+    border-top: 2px solid rgb(1, 63, 104);
+    border-bottom: 2px solid rgb(1, 63, 104);
+    margin-left: 2em;
+}
+
+/* Defining common styles for all "before" pseudo elements. 
+These pseudo elements are used to give the data proper context.  */
+*::before {
+    color: rgb(0, 153, 255);
+    margin-right: 1em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+street::before {
+    content: "Street:";
+
+}
+
+city::before {
+    content: "City:";
+
+}
+
+country::before {
+    content: "Country: ";
+
+}
+
+telephone::before {
+    content: "Telephone:";
+
+}
+
+webAddress {
+    color: #0000ff;
+    margin-bottom: 2em;
+}
+
+webAddress::before {
+    content: "Website: ";
+    color: rgb(0, 153, 255);
+    margin-right: 1em;
+}
+
+shopInfo::before {
+    content: "About us:";
+}
+
+/* These are the elements having commom outset styles.
+One is a child of Genre tag, the other is a child of Songs tag.  */
+genreGroup,
+song {
+    background-color: #ecf0f3;
+    height: auto;
+    box-shadow: 1em 1em 1em #d1d9e6, -1em -1em 1em #ffffff90;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+    margin-left: 3em;
+    margin-top: 2em;
+    width: 90%;
+}
+
+/* Defining genre tag as an unordered list item. */
+genre {
+    display: list-item;
+    list-style-type: disc;
+    width: 100%;
+    margin-bottom: 1em;
+    color: rgb(0, 153, 255);
+    overflow: unset;
+}
+
+genre::after {
+    content: ":-";
+}
+
+/* Defining genre tag as an ordered list item. */
+song {
+    display: list-item;
+    list-style-type: upper-roman;
+    overflow: unset;
+    width: 20em;
+}
+
+songs::before {
+    content: "Some songs featured by \"Rock & Slash\" are:";
+    color: #5d5e61;
+    width: 100%;
+}
+
+songName::before {
+    content: "Song Name:";
+}
+
+songName {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+songGenre::before {
+    content: "Genre:";
+}
+
+director::before {
+    content: "Director:";
+}
+
+producer::before {
+    content: "Producer:";
+}
+
+band::before {
+    content: "Band:";
+}
+
+writer::before {
+    content: "Writer:";
+}
+
+musician::before {
+    content: attr(mType) " Musician:";
+}
+
+version::before {
+    content: "Version:";
+}
+
+singer::before {
+    content: attr(sType) " Singer:";
+}
+
+releaseYear::before {
+    content: "Release Year:";
+}
+
+songLength::before {
+    content: "Length:";
+}
+
+language::before {
+    content: "Language:";
+}
+
+bitRate::before {
+    content: "Bit Rate:";
+}
+
+/* Defining Hover effects */
+genreGroup:hover,
+song:hover {
+    box-shadow: inset 1em 1em 1em #d1d9e6, inset -1em -1em 1em #ffffff90;
+}
